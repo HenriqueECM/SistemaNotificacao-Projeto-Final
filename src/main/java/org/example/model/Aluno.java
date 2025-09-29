@@ -42,5 +42,23 @@ public class Aluno {
         return nome;
     }
 
-    
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setTurma(String turma) {
+        this.turma = turma;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }
