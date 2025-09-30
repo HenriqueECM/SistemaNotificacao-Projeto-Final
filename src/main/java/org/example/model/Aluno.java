@@ -22,6 +22,10 @@ public class Aluno {
         this.nome = nome;
     }
 
+    public Aluno() {
+
+    }
+
     public int getId() {
         return id;
     }
@@ -60,5 +64,8 @@ public class Aluno {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public void setEmail(String email) {
     }
 }
