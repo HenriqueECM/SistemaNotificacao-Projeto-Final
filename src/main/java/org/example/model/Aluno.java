@@ -5,18 +5,21 @@ public class Aluno {
     private String matricula;
     private String status;
     private String turma;
+    private String nome;
 
     public Aluno(int id, String matricula, String status, String turma) {
         this.id = id;
         this.matricula = matricula;
         this.status = status;
         this.turma = turma;
+        this.nome = nome;
     }
 
     public Aluno(String matricula, String status, String turma) {
         this.matricula = matricula;
         this.status = status;
         this.turma = turma;
+        this.nome = nome;
     }
 
     public Aluno() {
@@ -39,6 +42,10 @@ public class Aluno {
         return turma;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -53,6 +60,10 @@ public class Aluno {
 
     public void setTurma(String turma) {
         this.turma = turma;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public void setEmail(String email) {
