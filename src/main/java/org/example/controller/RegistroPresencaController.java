@@ -12,6 +12,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import static java.lang.StringTemplate.STR;
+
 public class RegistroPresencaController {
     private final PresencaDAO presencaDAO;
     private final NotificacaoFacade notificacaoFacade;
