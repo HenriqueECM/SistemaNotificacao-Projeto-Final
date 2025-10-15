@@ -2,38 +2,22 @@ package org.example.repository;
 
 import org.example.Conexao;
 import org.example.model.Aluno;
-import org.example.model.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class AlunoDAO {
-    public void cadastro (Aluno aluno, User user) throws SQLException {
-        String queryUser = "INSERT INTO User (nome, email, senha, tipo) VALUES (?,?,?, 'ALUNO";
-
-        String queryAluno = "INSERT INTO Aluno (matricula, status, turma) VALUES (?,?,?)";
-
+    public void criarAluno(Aluno aluno) throws SQLException {
+        String sql = "INSERT INTO Aluno (id, matricula, status, turma) VALUES (?, ?, ?, ?)";
         try (Connection conn = Conexao.conectar();
-             PreparedStatement stmt = conn.prepareStatement(queryUser)){
-
-            stmt.setString(1, user.getNome());
-            stmt.setString(2, user.getEmail());
-            stmt.setString(3, user.getSenha());
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, aluno.getId());
+            stmt.setString(2, aluno.getMatricula());
+            stmt.setString(3, aluno.getStatus());
+            stmt.setString(4, aluno.getTurma());
 
             stmt.executeUpdate();
-
-        }
-
-        try (Connection conn = Conexao.conectar();
-        PreparedStatement stmt = conn.prepareStatement(queryAluno)){
-
-            stmt.setString(1, aluno.getMatricula());
-            stmt.setString(2, aluno.getStatus());
-            stmt.setString(3, aluno.getTurma());
-
-            stmt.executeUpdate();
-
         }
     }
 }
