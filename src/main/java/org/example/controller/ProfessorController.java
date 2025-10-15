@@ -10,36 +10,19 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class ProfessorController {
-//    private final RegistroPresencaController registro;
-    private final ProfessorService professorService;
+    private final RegistroPresencaController registro;
 
-    public ProfessorController() {
-        this.professorService = new ProfessorService(new UserDAO(), new ProfessorDAO());
-
+    public ProfessorController(RegistroPresencaController registro) {
+        this.registro = registro;
     }
 
-    public void cadastrarProfessor(String nome, String email, String senha, String telefone, String cpf) {
+    public void marcarFaltaAluno(Aluno aluno, LocalDate data, int unidadeId, Integer professorId) {
         try {
-            Professor prof = new Professor();
-            prof.setNome(nome);
-            prof.setEmail(email);
-            prof.setSenha(senha);
-            prof.setTelefone(telefone);
-            prof.setCpf(cpf);
-            professorService.cadastrarProfessor(prof);
-            System.out.println("Professor cadastrado com sucesso!");
-        } catch (Exception e) {
-            System.out.println("Erro ao cadastrar professor: " + e.getMessage());
+            System.out.println(STR."Professor está marcando falta do aluno \{aluno.getNome()}");
+            registro.marcarFalta(aluno, data, unidadeId, professorId);
+        } catch (SQLException e) {
+            // tratar erro (rollback já feito dentro do DAO se usou transação explicita)
+            e.printStackTrace();
         }
     }
-
-//    public void marcarFaltaAluno(Aluno aluno, LocalDate data, int unidadeId, Integer professorId) {
-//        try {
-//            System.out.println(STR."Professor está marcando falta do aluno \{aluno.getNome()}");
-//            registro.marcarFalta(aluno, data, unidadeId, professorId);
-//        } catch (SQLException e) {
-//            // tratar erro (rollback já feito dentro do DAO se usou transação explicita)
-//            e.printStackTrace();
-//        }
-//    }
 }

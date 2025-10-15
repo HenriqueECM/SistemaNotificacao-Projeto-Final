@@ -16,7 +16,6 @@ public class LoginController {
             User user = authService.login(email, senha);
             if (user != null) {
                 System.out.println("Login bem-sucedido!");
-                System.out.println("Tipo de usuário: " + user.getTipo());
             } else {
                 System.out.println("Credenciais inválidas.");
             }

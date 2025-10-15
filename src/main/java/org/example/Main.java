@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.controller.AlunoController;
+import org.example.controller.CadastroController;
 import org.example.controller.LoginController;
 import org.example.controller.ProfessorController;
 
@@ -9,8 +10,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        AlunoController alunoController = new AlunoController();
-        ProfessorController professorController = new ProfessorController();
+        CadastroController cadastroController = new CadastroController();
         LoginController login = new LoginController();
 
         System.out.println("=== SISTEMA DE LOGIN E CADASTRO ===");
@@ -23,7 +23,7 @@ public class Main {
 
         switch (opcao) {
             case 1 -> {
-                System.out.println("Nome: ");
+                System.out.print("Nome: ");
                 String nome = sc.nextLine();
                 System.out.print("Email: ");
                 String email = sc.nextLine();
@@ -33,10 +33,10 @@ public class Main {
                 String matricula = sc.nextLine();
                 System.out.print("Turma: ");
                 String turma = sc.nextLine();
-                alunoController.cadastrarAluno(nome, email, senha, matricula, turma);
+                cadastroController.cadastrarAluno(nome, email, senha, matricula, turma);
             }
             case 2 -> {
-                System.out.println("Nome: ");
+                System.out.print("Nome: ");
                 String nome = sc.nextLine();
                 System.out.print("Email: ");
                 String email = sc.nextLine();
@@ -46,7 +46,7 @@ public class Main {
                 String telefone = sc.nextLine();
                 System.out.print("CPF: ");
                 String cpf = sc.nextLine();
-                professorController.cadastrarProfessor(nome, email, senha, telefone, cpf);
+                cadastroController.cadastrarProfessor(nome, email, senha, telefone, cpf);
             }
             case 3 -> {
                 System.out.print("Email: ");
